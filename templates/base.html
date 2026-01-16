@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Journey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">English Journey</div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}">Início</a></li>
+                <li><a href="{{ url_for('list_tests') }}">Testes</a></li>
+                <li><a href="{{ url_for('list_tips') }}">Dicas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="app-container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 English Journey. Elevando seu potencial.</p>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

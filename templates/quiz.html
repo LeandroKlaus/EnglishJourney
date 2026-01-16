@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="quiz-app" class="quiz-container fade-in">
+    <div class="quiz-header-info">
+        <h2>{{ quiz_title }}</h2>
+    </div>
+    
+    <div class="progress-track">
+        <div class="progress-fill" id="progress-bar"></div>
+    </div>
+
+    <div id="question-box" class="question-card">
+        <h3 id="question-text" class="question-text">Carregando...</h3>
+        <div id="options-container" class="options-grid"></div>
+    </div>
+    
+    <div id="calculating-state" class="hidden state-box">
+        <div class="spinner"></div>
+        <p>Analisando desempenho...</p>
+    </div>
+
+    <div id="result-box" class="result-card hidden slide-in-up">
+        <h3>Resultado Final</h3>
+        <h1 class="level-display" id="final-level-text"></h1>
+        <p class="score-detail">Você acertou <span id="score-text"></span> questões (<span id="percent-text"></span>%).</p>
+        <div class="result-actions">
+            <a href="{{ url_for('list_tests') }}" class="btn-primary">Outros Testes</a>
+            <a href="{{ url_for('list_tips') }}" class="btn-secondary">Ver Dicas</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const quizData = {{ questions | tojson }};
+    const currentQuizId = "{{ quiz_id }}";
+</script>
+<script src="{{ url_for('static', filename='js/quiz_engine.js') }}"></script>
+{% endblock %}

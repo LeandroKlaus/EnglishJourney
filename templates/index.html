@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero-section fade-in-up">
+    <div class="hero-content">
+        <h1 class="hero-title">Unlock Your<br>Full Potential.</h1>
+        <p class="hero-subtitle">Advanced analytics for your English proficiency. Step into the future of learning.</p>
+        <div class="hero-actions">
+            <a href="{{ url_for('list_tests') }}" class="btn-primary">Initialize Test</a>
+            <a href="{{ url_for('list_tips') }}" class="btn-outline">Access Database</a>
+        </div>
+    </div>
+</section>
+
+<section class="features-grid fade-in-up" style="margin-top: 2rem;">
+    <div class="test-card">
+        <h3>AI Analysis</h3>
+        <p>Real-time scoring algorithms to determine your CEFR level instantly.</p>
+    </div>
+    <div class="test-card">
+        <h3>Global Standards</h3>
+        <p>Aligned with international proficiency benchmarks from A1 to C2.</p>
+    </div>
+    <div class="test-card">
+        <h3>Adaptive UI</h3>
+        <p>A next-gen interface designed for focus, speed, and clarity.</p>
+    </div>
+</section>
+{% endblock %}
